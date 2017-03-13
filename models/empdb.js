@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 //var dbPath = 'mongodb://localhost/empdb';
-var dbPath = 'mongodb://vikram:password@ds161059.mlab.com:61059/empdb';
+var dbPath = 'mongodb://vikram:password@ds161059.mlab.com:61059/chat';
 
 mongoose.connect(dbPath);
 
