@@ -55,17 +55,16 @@
   </thead>  
   <tbody>
 	  <tr ng-repeat="employee in employees">
-	                <td>{{employee.name}}</td>
-	                <td>{{employee.email}}</td>               
-	                <td>{{employee.dob | date:'yyyy-MM-dd'}}</td>
-	                <td>{{employee.gender}}</td>
-	                <td>{{employee.depart}}</td>
-	                <td>{{employee.age}}</td>
-	                <td>
-	                  <button class="btn btn-danger btn-sm" ng-click="removeEmployee(employee.email)">Delete</button>&nbsp;&nbsp;
-	                  <button class="btn btn-primary btn-sm" ng-click="editEmployee(employee.email)">Edit</button>
-	                </td>
-	                
+            <td>{{employee.name}}</td>
+            <td>{{employee.email}}</td>               
+            <td>{{employee.dob | date:'yyyy-MM-dd'}}</td>
+            <td>{{employee.gender}}</td>
+            <td>{{employee.depart}}</td>
+            <td>{{employee.age}}</td>
+            <td>
+              <button class="btn btn-danger btn-sm" ng-click="removeEmployee(employee.email)">Delete</button>&nbsp;&nbsp;
+              <button class="btn btn-primary btn-sm" ng-click="editEmployee(employee.email)">Edit</button>
+            </td>
 	    </tr> 
     </tbody>
 </table>

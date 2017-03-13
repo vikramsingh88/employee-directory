@@ -28,9 +28,7 @@ module.exports.addEmployee = function(req, res) {
 
 
 	if(gender !== "Male" & gender !== "Female"){
-		var message="ERROR : Bad Request, Invalid value for gender ";
-		console.log(message);
-		res.status(400).send(message);
+		res.status(400).send("bad request");
 		return;
 	}
 
@@ -58,7 +56,7 @@ module.exports.employees = function(req, res) {
 	Employee.find({}, function(err, employees) {
 		if(err) {
 			console.log(err);
-			res.status(500).send("Error while fetching data");
+			res.status(500).send("Error while fetching employee data");
 			return;
 		}else {
 			res.status(200).send(employees);
@@ -73,7 +71,7 @@ module.exports.getEmployee = function(req, res) {
 	Employee.findOne({'email':empId}, function(err, employee) {
 		if(err) {
 			console.log(err);
-			res.status(500).send("Error while fetching data");
+			res.status(500).send("Error while fetching employee data");
 		} else {
 			res.status(200).send(employee);
 		}
@@ -98,7 +96,7 @@ module.exports.updateEmployee = function(req, res) {
 	var empId = req.params.id;
 	Employee.update({email: empId}, { $set: {name: req.body.name}}, function(err, employee){
 		if(err) {
-			res.status(500).send("Error while updating");
+			res.status(500).send("Error while updating employee data");
 		} else {
 			res.status(200).send(employee);
 		}

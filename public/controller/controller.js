@@ -35,8 +35,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
      $http.put('/employee/' + $scope.employee.email, $scope.employee).success(function(response) {
        updateView();
      });
-    };
-    
+    };    
 
 }]);
 
