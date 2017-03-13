@@ -1,0 +1,22 @@
+{
+  "name": "employeedirectory",
+  "version": "1.0.0",
+  "description": "Edureca training project with mean stack",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "keywords": [
+    "node",
+    "mongo",
+    "express",
+    "angular"
+  ],
+  "author": "Vikram",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.8.7"
+  }
+}

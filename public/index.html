@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Employee Directory</title>
+	<link href="/css/bootstrap.min.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+   <script>
+	  $(function() {
+	    var datepicker=$("#datepicker").datepicker(
+	        {changeMonth:true,changeYear:true,maxDate:"-1M -1D -1Y",dateFormat:"yy-mm-dd"}
+	                                              );
+	    $("#datepicker").bind("keydown", function (event) {
+	       event.preventDefault();
+	     });
+	  });
+  </script>
+
+</head>
+<body ng-controller="AppCtrl">
+
+<h1 align="center"> Weolcome to Employee Directory </h1>
+<p align="center" class="btn-danger">only name can be updated</p>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+		<form>
+			<input class="form-control" type="text" ng-model="employee.name" required  placeholder="Name"/><br>
+			<input class="form-control" type="email" ng-model="employee.email" required  placeholder="sample@gmail.com"/><br>
+			<input class="form-control" type="text" autocomplete="off" ng-model="employee.dob" id="datepicker"  required  placeholder="YYYY-MM-DD"/><br>
+			<input class="form-control" type="text" ng-model="employee.depart" required   placeholder="Department"/><br>
+			<input class="form-control" type="text" ng-model="employee.gender" required  placeholder="Gender"/><br>
+			<input class="form-control" type="number" ng-model="employee.age" disabled  placeholder="Age"/><br>
+			
+			<button class="btn btn-success btn-md" ng-click="addEmployee()">Add Employee</button>
+			<button class="btn btn-success btn-md" ng-click="updateEmployee()">Update Employee</button></td>
+		</form>
+		</div>
+	</div>
+</div>
+
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>DOB</th>
+      <th>Gender</th>
+      <th>Department</th>
+      <th>Age</th>
+    </tr>
+  </thead>  
+  <tbody>
+	  <tr ng-repeat="employee in employees">
+	                <td>{{employee.name}}</td>
+	                <td>{{employee.email}}</td>               
+	                <td>{{employee.dob | date:'yyyy-MM-dd'}}</td>
+	                <td>{{employee.gender}}</td>
+	                <td>{{employee.depart}}</td>
+	                <td>{{employee.age}}</td>
+	                <td>
+	                  <button class="btn btn-danger btn-sm" ng-click="removeEmployee(employee.email)">Delete</button>&nbsp;&nbsp;
+	                  <button class="btn btn-primary btn-sm" ng-click="editEmployee(employee.email)">Edit</button>
+	                </td>
+	                
+	    </tr> 
+    </tbody>
+</table>
+
+<script src="/js/angular.min.js"></script>  
+<script src="/controller/controller.js"></script>
+</body>
+</html>
